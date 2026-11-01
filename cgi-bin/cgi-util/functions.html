@@ -1,0 +1,110 @@
+<html><head><title>New Breed Software's cgi-util library - Function
+Descriptions</title>
+<meta name="description" content="A list of functions available from
+the cgi-util C programming library.">
+<meta name="keywords" content="CGI, PROGRAM, PROGRAMMING, SOFTWARE,
+SCRIPT, SCRIPTING, C, C++, UNIX, WINDOWS, WIN, WINDOWS NT, WINNT, WIN NT,
+SERVER, LIBRARY, FORM, HTML, URL, COMMON GATEWAY INTERFACE">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#FF0000">
+
+<center>
+
+<h1>New Breed Software's<br>
+<img src="cgi-util.gif" width=200 height=50 alt="cgi-util library"></h1>
+By Bill Kendrick, 1996-1997
+
+<h2>FUNCTION DESCRIPTIONS</h2>
+
+</center>
+
+<hr>
+
+<h3>Usage:</h3>
+   
+<ul>
+<li>In your CGI C source, "#include" the `cgi-util.h' file:<p>
+
+     <code>#include "cgi-util.h"</code><p>
+
+<li>In your makefile (or when compiling), compile "cgi-util.c" into an
+   Object file and link it to your CGI's sourcecode or Object:<p>
+
+     <code>gcc cgi-util.c -c<br>
+     gcc program.o cgi-util.o -o program.cgi<p></code>
+
+   ...or, compile it along with your CGI sourcecode:<p>
+
+     <code>gcc program.c cgi-util.c -o program.cgi</code><p>
+
+</ul>
+
+<h3>Constants:</h3>
+
+<ul>
+<li><b><code>int NUM_ENTRIES;</code></b><br>
+Number of unique name/value entries found (by cgiinit() below).<p>
+
+<li><b><code>int VIA_SHELL;</code></b><br>
+1 if called via shell (not via HTTPD)<br>
+0 if called via web (HTTPD)<p>
+</ul>
+
+<h3>Functions:</h3>
+
+<ul>
+<li><b><code>void cgiinit(void);</code></b><br>
+  Initializes CGI - receives form data (via either "post" or "get" method).<p>
+
+<li><b><code>void getentry(char * buf, char *s);</code></b><br>
+  Searches for an entry (name) and returns its value or an empty string.<p>
+
+  <code>buf</code> = address of string buffer to store value in.<br>
+  <code>s</code> = string (name field of <code>&lt;input&gt;</code> tag)
+    to search for.<p>
+
+<li><b><code>int getentryasint(char *s);</code></b><br>
+  Searches for an entry (name) and returns its value or 0.<p>
+  
+  return = value, converted from string to integer.<br>
+  <code>s</code> = string (name) to search for.<p>
+
+<li><b><code>int getentryyesno(char *s, int def);</code></b><br>
+  Searches for an entry (name) and returns:<p>
+
+  0 if the value is "no" or "off"<br>
+  1 if the value is "yes" or "on"<br>
+  <code>def</code> if the value is none of those<p>
+  
+  return = determined by entry's value (yes/on=1, no/off=0, else
+     <code>def</code>)<br>
+  <code>s</code> = string (name) to search for.<p>
+  <code>def</code> = default value to return if yes/on/no/off are not found<p>
+
+<li><b><code>int dump_no_abort(char * filename);</code></b><br>
+  Opens "<code>filename</code>" and displays it to <code>stdout</code>
+  (browser).<p>
+
+  <code>filename</code> = path of file to display<br>
+  return = -1 on error, 0 on ok.<p>
+
+<li><b><code>void dump(char * filename);</code></b><br>
+  Opens "filename" and displays it to stdout (browser).<p>
+  
+  Displays error message to stdout and aborts on error.<p>
+
+  <code>filename</code> = path of file to display<p>
+
+<li><b><code>int goodemailaddress(char * addr);</code></b><br>
+  Makes sure an email address is formatted correctly.<p>
+  
+  <code>addr</code> = an e-mail address (probably received from browser
+    via "<code>getentry()</code>"... you can never trust web surfers to
+    know their own e-mail address!!)<br>
+  Returns 1 on good address, 0 on badly formatted one.<p>
+
+</ul>
+
+<hr>
+
+</body></html>

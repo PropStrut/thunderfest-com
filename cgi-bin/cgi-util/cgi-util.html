@@ -1,0 +1,183 @@
+<html><head><title>New Breed Software's cgi-util library</title>
+<meta name="description" content="A free C library that lets you easily and
+quickly create your own interactive CGI's for your website.  Many useful
+built-in functions and plenty of examples!">
+<meta name="keywords" content="CGI, PROGRAM, PROGRAMMING, SOFTWARE,
+SCRIPT, SCRIPTING, C, C++, UNIX, WINDOWS, WIN, WINDOWS NT, WINNT, WIN NT,
+SERVER, LIBRARY, FORM, HTML, URL, COMMON GATEWAY INTERFACE">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#FF0000">
+
+<center>
+
+<h1>New Breed Software's<br>
+<img src="cgi-util.gif" width=200 height=50 alt="cgi-util library"></h1>
+By Bill Kendrick, 1996-1997
+
+<p><hr size=2><p>
+
+<table border=0 width=80%><tr><td>
+
+<font size=+1>
+<p>The <b><code>cgi-util</code></b> library of C source code is a powerful
+CGI interface for your C programs, providing form field searching,
+conversion to integer and from radio and checkbox fields.  Simple file
+access allows your CGI's to include HTML from files instead of being
+all hard-coded.</p>
+</font>
+
+<center>
+
+<h1>Download:</h1>
+<h2><code><a href="ftp://ftp.sonic.net/pub/users/nbs/unix/www/cgi-util/cgi-util.c">cgi-util.c</a></code><br>
+<code><a href="ftp://ftp.sonic.net/pub/users/nbs/unix/www/cgi-util/cgi-util.h">cgi-util.h</a></code><br>
+<a href="functions.html">Function Descriptions &amp; Usage</a><br>
+Coming Soon: Demo Programs!</h2>
+
+. . .<p>
+
+<table border=0 cellpadding=8 cellspacing=0 bgcolor="#AAAAAA" width=75%>
+<tr><td>
+
+<h3 align=center>Using <code>cgi-util</code> in your C programs is easy!</h3>
+
+<hr size=1 width=75%>
+
+<ol>
+<li>Call the "<code>cgiinit()</code>" function to invoke the setup routines.<p>
+
+<li>Tell the browser what type of information you're sending (usually
+    "<code>text/html</code>", but it can be "<code>image/gif</code>",
+    "<code>audio/wav</code>" or any other MIME type!):<p>
+    <b><code>printf("Content-type: text/html\n\n");</code></b><p>
+
+<li>Use the "<code>getentry</code>" family of functions to receive data sent
+    to your CGI from the browser.  (Either through <code>&lt;input&gt;</code>
+    fields or "URL-encoded.")<p>
+
+<li>Use the "<code>dump</code>" family of functions to use existing HTML or
+    text files in the resulting page.<p>
+
+</ol>
+
+<hr size=1 width=75%>
+
+<h2 align=center>A Simple Example:</h2>
+
+<center>
+
+<table border=0 width=90% bgcolor="#DDFFDD" cellspacing=0 cellpadding=4>
+<tr><td>
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;example form&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1 align=center&gt;example form&lt;/h1&gt;
+
+&lt;form action="example.cgi" method="post"&gt;
+
+Your name: &lt;input type="text" name="Name"&gt; &lt;br&gt;
+Your age: &lt;input type="text" name="Age"&gt; &lt;br&gt;
+
+&lt;input type="submit" value="Send"&gt; &lt;br&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+
+</pre>
+</td></tr>
+</table>
+<p>
+
+<table border=0 width=90% bgcolor="#DDDDFF" cellspacing=0 cellpadding=4>
+<tr><td>
+<pre>
+/* example.c */
+
+#include &lt;stdio.h&gt;
+#include "cgi-util.h"
+
+void main()
+{
+  int age;
+  char name[100];
+
+  cgiinit();
+  printf("Content-type: text/html\n\n");
+
+  dump("top.html");
+
+  getentry(name, "Name");
+  age = getentryasint("Age");
+
+  printf("&lt;h1&gt;%s is %d years old!&lt;/h1&gt;\n", name, age);
+
+  dump("bottom.html");
+}
+</pre>
+</td></tr>
+</table>
+
+</center>
+
+<p><hr size=1 width=75%><p>
+
+<h2 align=center>Compiling:</h2>
+
+<ul>
+<li><font size=+2><b>UNIX:</b></font><br>
+
+The easiest way to compile your program with <code><b>cgi-util</b></code>
+is to use a "<code>makefile</code>" like this one:
+<a href="makefile-example.txt">makefile example</a>.<p>
+
+A crude way to link the <code>cgi-util</code> routines is to compile it
+with your source code:<p>
+
+<code><b>gcc example.c cgi-util.c -o example.cgi</b></code><p>
+
+Note: Remember to set the permissions on your CGI so that the web server can
+execute it (otherwise you'll get a "Forbidden" error):<p>
+
+<code><b>chmod 755 example.cgi</b></code><p>
+
+<hr width=50%><p>
+
+<li><font size=+2><b>WINDOWS NT:</b></font><br>
+
+Using your C compiler (like MicroSoft Visual C++), create a new "project" for
+your CGI program.  It should be a console-based program (versus a full-blown
+Windows program).  Add "cgi-util.c" to your project, and it should work.
+If there are problems, please let me know and I'll try to help.  Thanks!<p>
+
+Note: If you're creating an application which displays non-text data
+("<code>Content-type: image/gif</code>", for example), you may need to
+<code>#include&nbsp;&lt;fcntl.h&gt;</code> and add the line:
+<code>setmode(fileno(STDOUT),&nbsp;_O_BINARY);</code> to your program.<br>
+<font size=-1>From:
+<a href="mailto:scripts@anglodansk.com">Paul Williams</a></font><p>
+
+<hr width=50%><p>
+
+<li><font size=+2><b>OTHER:</b></font><br>
+If you've gotten <code><b>cgi-util</b></code> to work with other operating
+systems and C compilers, please let me know about it!
+<a href="mailto:nbs@sonic.net">nbs@sonic.net</a>
+Thanks!<p>
+
+</ul>
+
+</td></tr>
+</table>
+</center>
+
+</td></tr></table>
+
+<p><hr><p>
+
+<a href="http://www.sonic.net/~nbs/">By Bill
+  Kendrick</a>,
+<a href="http://www.sonic.net/~nbs/">New Breed Software,<br>
+<i><a href="mailto:nbs@sonic.net">nbs@sonic.net</a></i>
+<p>
+
+</body></html>

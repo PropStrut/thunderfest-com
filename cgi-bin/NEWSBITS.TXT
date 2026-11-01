@@ -1,0 +1,15 @@
+
+
+ 6/9/99:
+
+
+ NewsBits.NTU: The version that FTP's the resulting HTML to a Unix server.
+
+
+ NewsBits.NT:  The version that tries to host the HTML on the NT machine.
+   This doesn't work.  It seems that once a browser views the file, the
+   NT server keeps a lock on it for up to 5 minutes.  This may or may not
+   be a file permissions problem.
+
+
+

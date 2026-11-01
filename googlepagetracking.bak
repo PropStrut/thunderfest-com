@@ -1,0 +1,17 @@
+<?php
+
+////
+//// Take input from a javascript page view hit and log it
+////
+
+define('PAGE_LOG_FILE', '../tmp/googlepagetracking.log');
+$fp = fopen(PAGE_LOG_FILE, 'a+');
+if ($fp) {
+  if (flock($fp, LOCK_EX)) { // do an exclusive lock
+    fwrite($fp, sprintf("%s  url=%s\r\n", date("M d H:i"), $_GET['url']));
+    flock($fp, LOCK_UN); // release the lock
+  }
+  fclose($fp);
+}
+
+?>

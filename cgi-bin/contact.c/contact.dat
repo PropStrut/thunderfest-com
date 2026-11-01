@@ -1,0 +1,12 @@
+Email_from_SODT_Web_Page
+SODT Thunderfest
+secure2.developerschoice.net
+hydros@reedonline.com
+
+// The four parameters above must begin on the first line and
+// contain no blank lines.  The fields are:
+//   Subject
+//   Organization
+//   Server
+//   Recipient (duplicated in the Sender field!)
+

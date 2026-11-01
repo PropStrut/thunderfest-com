@@ -1,0 +1,127 @@
+
+<HTML>
+
+<HEAD>
+<TITLE>THUNDERFEST: CONTACT US</TITLE>
+</HEAD>
+
+<BODY BACKGROUND="../../img/bckwatr3.gif" BGCOLOR="#000058" TEXT="#FFC610" LINK="#F0F0F0" VLINK="#C0C1C0" ALINK="#00F0F0">
+
+<CENTER><FONT SIZE=+3>CONTACT THUNDERFEST</FONT></CENTER>
+
+<P>
+<CENTER>
+<TABLE WIDTH="600" BORDER=0 CELLSPACING=2 CELLPADDING=8>
+
+<tr>
+<td>
+<B>
+It has come to our attention that our email form has ceased to work.
+While we fix it, please send your inquires to:
+<BR>
+<FONT COLOR=#FFFFFF>sayhello @ thunderfest .com</FONT>
+(remove the spaces in the email address please)
+<P>
+If you submitted an inquiry but did not receive a reply, please
+send again.
+<P>
+For more immediate questions about ticket plans or public relations,
+feel free to call us toll-free at (800) 359-7760.
+[business hours, Eastern timezone]
+</B>
+</td>
+</tr>
+
+
+<!--
+<tr>
+<td>
+<FONT SIZE=3 COLOR="#FFFFFF">
+<B>
+For casual inquiries, please use the form below.
+For more immediate questions about ticket plans or public relations,
+feel free to call us toll-free at (800) 359-7760.
+<BR>
+[business hours, Eastern timezone]
+</B>
+
+</FONT>
+</td>
+</tr>
+
+<tr>
+<td>
+<CENTER>
+<FORM NAME="ContactForm" METHOD=POST ACTION="contact.cgi">
+<INPUT TYPE="hidden" NAME="RootDir" VALUE="d:/webs/thunderfest/cgi-bin/contact/">
+
+<P>
+<B>Your email address (only required if you'd like an email reply):</B>
+<BR><INPUT TYPE="text" NAME="userEmail" SIZE="65" VALUE="">
+
+<P>
+<B>Please enter your inquiry or comment here, then click on the SEND button below:</B>
+<TEXTAREA TYPE="text" NAME="userText" COLS=65 ROWS="15" WRAP="OFF">
+</TEXTAREA>
+
+<P>
+<INPUT TYPE="submit" VALUE="----  Send message now  ----">
+
+</FORM>
+</CENTER>
+</td>
+</tr>
+-->
+
+</TABLE>
+</CENTER>
+
+<B>
+<FONT FACE="Helvetica, Verdana, Arial" SIZE=2>
+<CENTER>
+<FONT COLOR="#FF0000">
+NOTICE!  Effective March 26th we will be in new offices!  Phones stay the same.
+</FONT>
+<BR>
+<FONT SIZE=3>
+Spirit Of Detroit THUNDERFEST
+</FONT>
+<BR>
+<FONT SIZE=3 COLOR=FFFFFF>
+(800) 359-7760 or (313) 331-7770 ---- Fax: (313) 331-7772
+</FONT>
+<BR>
+The Book Tower - 1249 Washington Blvd - Suite 1700 - Detroit MI  48226
+</CENTER>
+</FONT>
+</B>
+
+
+<P>
+<CENTER>
+<TABLE WIDTH=600 CELLPADDING=0 CELLSPACING=0 BORDER=0>
+<TR>
+<TD>
+
+<CENTER><IMG SRC="../../img/goldbar3.gif" WIDTH=580 HEIGHT=3 ALIGN="BOTTOM"></CENTER>
+<P>
+<A HREF="http://www.thunderfest.com/news/index.html"><IMG SRC="../../img/apbasml3.gif" BORDER=0 ALT="*" WIDTH=120 HEIGHT=20 ALIGN="BOTTOM"> Return to the Top NEWS page.</A>
+<FONT SIZE=2>
+<P>
+<B><I>All contents Copyright &copy; 2001 Spirit of Detroit THUNDERFEST, except where noted.
+<BR>
+All Rights Reserved.</I></B>
+<P>
+Program by Brian Reed.
+<P>
+</FONT>
+
+</td>
+</tr>
+</TABLE
+</CENTER>
+
+
+</BODY>
+</HTML>
+

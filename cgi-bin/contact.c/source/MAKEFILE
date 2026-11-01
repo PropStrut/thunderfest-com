@@ -1,0 +1,16 @@
+
+!include <ntwin32.mak>
+
+CgiPath=\HTML\CGI\CGI-UTIL
+
+
+ALL: CONTACT.EXE
+
+
+CONTACT.OBJ: CONTACT.C
+    $(cc) -DSTRICT -I$(CgiPath) $(cflags) $(cvars) CONTACT.C
+
+CONTACT.EXE: CONTACT.OBJ \HTML\CGI\CGI-UTIL\CGI-UTIL.OBJ
+  $(link) $(conflags) CONTACT.OBJ \HTML\CGI\CGI-UTIL\CGI-UTIL.OBJ user32.lib $(conlibs)
+
+

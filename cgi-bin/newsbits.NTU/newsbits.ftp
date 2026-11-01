@@ -1,0 +1,6 @@
+open 209.69.207.2
+brian
+t3mppass
+cd /reedonline.com/htdocs/hydro/newsbits
+put d:/webs/thunderfest/cgi-bin/newsbits/newsbits.html
+quit

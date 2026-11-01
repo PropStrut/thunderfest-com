@@ -1,0 +1,13 @@
+
+!include <ntwin32.mak>
+
+CgiPath=..\..\CGI-UTIL
+
+ALL: NEWSBITS.EXE
+
+NEWSBITS.OBJ: NEWSBITS.C
+    $(cc) -DSTRICT -I$(CgiPath) $(cflags) $(cvars) NEWSBITS.C
+
+NEWSBITS.EXE: NEWSBITS.OBJ ..\..\CGI-UTIL\CGI-UTIL.OBJ
+  $(link) $(conflags) NEWSBITS.OBJ ..\..\CGI-UTIL\CGI-UTIL.OBJ user32.lib $(conlibs)
+

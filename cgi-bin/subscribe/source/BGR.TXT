@@ -1,0 +1,9 @@
+
+
+  LISTMAN - The list manager for subscribe & unsubscribe
+
+  LISTADMIN - The utility to list all current subscribees
+
+  LISTSEND - The utility to send mail to all the subscribees
+
+

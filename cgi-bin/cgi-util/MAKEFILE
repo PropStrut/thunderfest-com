@@ -1,0 +1,9 @@
+
+!include <ntwin32.mak>
+
+ALL: CGI-UTIL.OBJ
+
+CGI-UTIL.OBJ: CGI-UTIL.C
+    $(cc) -DSTRICT $(cflags) $(cvars) CGI-UTIL.C
+
+

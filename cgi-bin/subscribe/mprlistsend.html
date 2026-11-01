@@ -1,0 +1,66 @@
+
+<HTML>
+
+<HEAD>
+<TITLE>MARINE PROP RIDERS: LIST SEND PAGE</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#FFFFFF" LINK="#F0F0F0" VLINK="#C0C1C0" ALINK="#00F0F0">
+
+<CENTER><FONT SIZE=+3>LIST SEND PAGE</FONT></CENTER>
+
+<P>
+<CENTER>
+<TABLE WIDTH="600" BORDER=0 CELLSPACING=2 CELLPADDING=8>
+
+<tr>
+<td>
+<CENTER>
+<FORM NAME="ListSendForm" METHOD=POST ACTION="listsend.cgi">
+
+  <!--
+  ;
+  ; These are the LISTSEND parameters.
+  ;
+  ; Five fields: ServerDirectory, MailServerName, Organization, Sender, From.
+  ;   Sample:
+  ;     d:/webfiles/cgi-bin/subscribe/  (MUST end with '/')
+  ;     Company Name
+  ;     mail.mydomain.com
+  ;     myrealemail@mydomain.com        (Sender & From may be the same)
+  ;     webmaster@companydomain.com     (May be non-existing email address)
+  ;
+  -->
+  <INPUT TYPE="hidden" NAME="RootDir" VALUE="d:/webs/thunderfest.com/htdocs/cgi-bin/subscribe/">
+  <INPUT TYPE="hidden" NAME="Organization" VALUE="Marine Prop Riders">
+  <INPUT TYPE="hidden" NAME="Server" VALUE="secure4.developerschoice.net">
+  <INPUT TYPE="hidden" NAME="Sender" VALUE="say.....@marinepropriders.com">
+  <INPUT TYPE="hidden" NAME="From" VALUE="say.....@marinepropriders.com">
+
+  <P>
+  <B>Password:</B>
+  <BR><INPUT TYPE="password" NAME="userPassword" SIZE="12">
+
+  <P>
+  <B>Subject:</B>
+  <BR><INPUT TYPE="text" NAME="userSubject" SIZE="50" VALUE="To Marine Prop Riders members">
+
+  <P>
+  <B>Text:</B>
+<TEXTAREA TYPE="text" NAME="userText" COLS=80 ROWS="25" WRAP="OFF">
+</TEXTAREA>
+
+  <P>
+  <INPUT TYPE="submit" VALUE="---------------------  SEND NOW!  ---------------------">
+
+</FORM>
+</CENTER>
+</td>
+</tr>
+
+</TABLE>
+</CENTER>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,31 @@
+
+!include <ntwin32.mak>
+
+CgiPath=\HTML\CGI\CGI-UTIL
+
+
+ALL: LISTMAN.EXE LISTSEND.EXE ADMIN.EXE
+
+
+LISTSEND.OBJ: LISTSEND.C list.h
+    $(cc) -DSTRICT -I$(CgiPath) $(cflags) $(cvars) LISTSEND.C
+
+LISTSEND.EXE: LISTSEND.OBJ \HTML\CGI\CGI-UTIL\CGI-UTIL.OBJ
+  $(link) $(conflags) LISTSEND.OBJ \HTML\CGI\CGI-UTIL\CGI-UTIL.OBJ user32.lib $(conlibs)
+
+
+LISTMAN.OBJ: LISTMAN.C list.h
+    $(cc) -DSTRICT -I$(CgiPath) $(cflags) $(cvars) LISTMAN.C
+
+LISTMAN.EXE: LISTMAN.OBJ \HTML\CGI\CGI-UTIL\CGI-UTIL.OBJ
+  $(link) $(conflags) LISTMAN.OBJ \HTML\CGI\CGI-UTIL\CGI-UTIL.OBJ user32.lib $(conlibs)
+
+
+ADMIN.OBJ: ADMIN.C list.h
+    $(cc) -DSTRICT -I$(CgiPath) $(cflags) $(cvars) ADMIN.C
+
+ADMIN.EXE: ADMIN.OBJ \HTML\CGI\CGI-UTIL\CGI-UTIL.OBJ
+  $(link) $(conflags) ADMIN.OBJ \HTML\CGI\CGI-UTIL\CGI-UTIL.OBJ user32.lib $(conlibs)
+
+
+

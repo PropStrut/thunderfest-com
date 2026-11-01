@@ -1,0 +1,445 @@
+<HTML>
+<HEAD><TITLE>Java Hermit HTick/VTick Manual</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000"
+LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<basefont face="Verdana" size="2">
+
+<A NAME="top">
+<FONT SIZE="+2" COLOR="#990000"><B>HTick10</B> and <B>VTick10</B></FONT>
+&nbsp;<I>applet documentation</I><BR>
+version 1.00 release (08 June 1998)<BR>
+Copyright &copy; the Java Hermit 1998<P>
+
+<FONT SIZE="+1" COLOR="#990000"><B>Contents</B></FONT>
+<UL>
+<LI><A HREF="#use1">Conditions of use</A>
+<LI><A HREF="#history">Version history</A>
+<LI><A HREF="#overview">Applet overview</A>
+<LI><A HREF="#files">Class files</A>
+<LI><A HREF="#applettag">the APPLET tag</A>
+<LI><A HREF="#params">Applet Parameters</A>
+  <UL>
+    <LI><A HREF="#borderwidth">BORDERWIDTH</A>
+    &nbsp;&nbsp;<A HREF="#borderstyle">BORDERSTYLE</A>
+    &nbsp;&nbsp;<A HREF="#bordercolor">BORDERCOLOR</A>
+    <LI><A HREF="#backcolor">BACKCOLOR</A>
+    &nbsp;&nbsp;<A HREF="#textcolor">TEXTCOLOR</A>
+    &nbsp;&nbsp;<A HREF="#textfont">TEXTFONT</A>
+    <LI><A HREF="#scrollspeed">SCROLLSPEED</A>
+    &nbsp;&nbsp;<A HREF="#framespeed">FRAMESPEED</A>
+    &nbsp;&nbsp;<A HREF="#captionspace">CAPTIONSPACE</A>
+    <LI><A HREF="#caption">CAPTION</A>
+  </UL>
+<LI><A HREF="#colors">Parameter Color values</A>
+<LI><A HREF="#codex">HTML code examples</A>
+<LI><A HREF="#trouble">If you have Problems...</A>
+</UL>
+
+<!-- Conditions of use -->
+
+<A NAME="use1">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH BGCOLOR=#CCCCCC>Conditions of use)</TH>
+<TR><TD>
+HTick and VTick are free for both private and commercial use, however they must
+not be sold or offered for download without the author's consent. The author retains
+copyright and accepts no responsibility for any loss, damage or other consequence
+alleged to be a result of use. Please acknowledge use by arranging a link from your web
+pages to the Hermit's site, HTML code examples...
+<P>
+<FONT COLOR="#000099">
+<PRE>
+  &lt;A HREF="http://www.celticedge.com/hermit/index.html"&gt;
+  VTick applet by the Hermit&lt;/A&gt;
+</PRE>
+</FONT>
+or use the <I>ticker.gif</I> file included in the download zip...
+<P>
+<FONT COLOR="#000099">
+<PRE>
+  &lt;A HREF="http://www.celticedge.com/hermit/index.html"&gt;
+  &lt;IMG SRC="ticker.gif" WIDTH=88 HEIGHT=31&gt;&lt;/A&gt;
+</PRE>
+</FONT>
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- Version history -->
+
+<A NAME="history">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH BGCOLOR=#CCCCCC>Version History</TH>
+<TR><TD>
+<B>version 1.00</B> release 08 June 1998
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+<!-- Applet overview -->
+
+<A NAME="overview">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH BGCOLOR=#CCCCCC>Applet Overview</TH>
+<TR><TD>
+HTick and VTick are simple ticker (message scrolling) applets designed for
+simplicity and small code size. Htick scrolls messages horizontally, VTick
+scrolls vertically.<P>
+
+The applets are configurable via <A HREF="#params">parameters</A> (listed below).
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+<!-- Class and other files -->
+
+<A NAME="files">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH BGCOLOR=#CCCCCC>Class files</TH>
+<TR><TD>
+Class files contain compiled code. HTick and VTick each use two...
+<PRE>
+  <I>HTick</I>:  HTick10.class (4.3k - main), HTick10a.class (1.8k)
+  <I>VTick</I>:  VTick10.class (4.4k - main), VTick10a.class (2.4k)
+</PRE>
+The class files marked (...main) are those that must be specified in the
+<A HREF="#applettag">APPLET</A> tag. For an applet to work <I>both</I> class
+files must be present. Remember class files names are Case Sensitive and are
+binary files that must be FTP'd in <I>binary mode</I>.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+<!-- APPLET tag -->
+
+<A NAME="applettag">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH BGCOLOR=#CCCCCC>The APPLET Tag</TH>
+<TR><TD>
+In your HTML code the applet tag should look like this (VTick assumed)...
+<FONT COLOR="#000099">
+<PRE>
+  &lt;APPLET CODE="VTick10.class" WIDTH=xxx HEIGHT=xxx&gt;
+    (PARAM tags go here)
+  &lt;/APPLET&gt;
+</PRE>
+</FONT>
+where CODE= specifies the name of the applet's main class file,
+WIDTH= and HEIGHT= specify the required applet size in screen pixels.
+Remember class file names are Case Sensitive and note the use of quotation
+marks to avoid accidental case changes.<P>
+Usually class files are stored in the same directory that contains the HTML
+file containing the APPLET code (called the <I>documentbase</I> directory).
+Class files can be located elsewhere by using the CODEBASE tag modifier.
+For more detailed information on &lt;APPLET...&gt; tag construction see the
+<B>Applet Users Tutorial</B>, available for download from the Java Hermit web site.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+<!-- Applet Parameters -->
+
+<A NAME="params">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH BGCOLOR=#CCCCCC>Applet Parameters</TH>
+<TR><TD>
+Parameters specify how an applet behaves. They are inserted in the HTML code 
+at the point (PARAM tags go here) in the <A HREF="#applettag">APPLET tag example</A>
+above. 
+<P>
+Note that PARAM NAME= entries are not case sensistive but VALUE= entries may be and,
+where quotation marks are shown in the included examples they should be retained
+to avoid accidental case changes (usually path or filename info).
+<P>
+Most PARAMs have a preset default value. If an applet instance can use the default
+the related parameter can be omitted from the HTML code.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- BORDERWIDTH -->
+
+<A NAME="borderwidth">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp; BORDERWIDTH parameter</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=BORDERWIDTH VALUE=x&gt;</FONT><BR>
+Default value: 1
+<P> 
+Where x is a decimal number between 0 and 8, represesenting the pixel thickness
+of the applet border. Set to zero for no border.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- BORDERSTYLE -->
+
+<A NAME="borderstyle">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp;BORDERSTYLE parameter</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=BORDERSTYLE VALUE=x&gt;</FONT><BR>
+Default value: 1 (solid)
+<P> 
+Where x is a decimal number between 1 and 4:<BR>
+1 = solid, 2 = 3D raised, 3 = 3D sunk, 4 = 3D frame.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- BORDERCOLOR -->
+
+<A NAME="bordercolor">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp;BORDERCOLOR parameter</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=BORDERCOLOR VALUE=x&gt;</FONT><BR>
+Default value: #CCCCCC (silver gray)
+<P> 
+Where x is the required color of the applet border. May be a decimal or
+hexadecimal color number.
+<P>
+<FONT COLOR="#993300"><B>NOTE 1:</B></FONT><BR>
+3D borders only work correctly with certain colors, try to use 'browser safe'
+medium bright colors. Colors are futher discussed in the
+<A HREF="#colors">parameter color values</A> section.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- BACKCOLOR -->
+
+<A NAME="backcolor">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp; BACKCOLOR parameter</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=BACKCOLOR VALUE=x&gt;</FONT><BR>
+Default value: #000000 (black)
+<P> 
+Where x is the required color of the applet background. May be a decimal or
+hexadecimal color number.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- TEXTCOLOR -->
+
+<A NAME="textcolor">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp; TEXTCOLOR parameter</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=TEXTCOLOR VALUE=x&gt;</FONT><BR>
+Default value: #FFFFFF (white)
+<P> 
+Where x is the required color of the captions text.
+May be a decimal or hexadecimal color number.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- TEXTFONT -->
+
+<A NAME="textfont">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp; TEXTFONT parameter</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=TEXTFONT VALUE="xxx,y,z"&gt;</FONT><BR>
+Default value: "Helvetica,0,12"
+<P>
+Where xxx is the captions text font facename, y is the font style, z is the font
+size in points. Comma &quot;,&quot; delimiters (without leading or trailing spaces)
+separate facename, style and size.
+<P>
+Available styles are 0 = plain, 1 = bold, 2 = italic, 3 = bold italic.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- SCROLLSPEED -->
+
+<A NAME="scrollspeed">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp;SCROLLSPEED parameter</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=SCROLLSPEED VALUE=x&gt;</FONT><BR>
+Default value: 25 (HTick), 15 (VTick)
+<P>
+Where x is a decimal number representing the scrolling speed in milliseconds.
+Ranges between approximately 10 and 30 usually produce the smoothest results.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- FRAMESPEED -->
+
+<A NAME="framespeed">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp;FRAMESPEED parameter &nbsp;(VTick only)</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=FRAMESPEED VALUE=x&gt;</FONT><BR>
+Default value: 2000
+<P>
+Where x is a decimal number representing the frame speed in milliseconds
+(the amount of time captions remain stationary between scrolls).
+<P>
+<FONT COLOR="#993300"><B>NOTE 1:</B></FONT> &nbsp;Only VTick uses this parameter.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- CAPTIONSPACE -->
+
+<A NAME="captionspace">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp;CAPTIONSPACE parameter &nbsp;(HTick only)</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=CAPTIONSPACE VALUE=x&gt;</FONT><BR>
+Default value: 10
+<P>
+Where x is a decimal number representing the number of spaces to insert
+between adjacent captions.
+<P>
+<FONT COLOR="#993300"><B>NOTE 1:</B></FONT> &nbsp;Only HTick uses this parameter.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+<!-- CAPTION -->
+
+<A NAME="caption">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH ALIGN="LEFT" BGCOLOR=#CCCCCC>&nbsp;CAPTION parameter</TH>
+<TR><TD>
+Example:&nbsp;
+<FONT COLOR="#000099">&lt;PARAM NAME=CAPTION? VALUE=&quot;xxx&quot;&gt;</FONT><BR>
+Default value: None - captions must be specified.
+<P>
+where "xxx" is any text string. Replace the ? with a number starting
+with 1. For example, if there are three captions specify 3 separate
+PARAM tags named CAPTION1, CAPTION2 and CAPTION3.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+
+<!-- Color Values -->
+
+<A NAME="colors">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH BGCOLOR=#CCCCCC>Parameter Color Values</TH>
+<TR><TD>
+Color values can be decimal or hexadecimal. Decimal values require no
+prefix, hex values can be prefixed with '0x' or '#'. You can't use color 
+string constants such as &quot;Red&quot;.
+<P>
+To ensure colors display as accurately as possible always use colors
+from the 'safe browser palette'. In hexadecimal notation safe colors
+are built from combinations of 00, 33, 66, 99, CC and FF. For example,
+#3366CC is a 'safe' color but #3366DD is not.
+<P>
+hexadecimal colors are arranged #RRGGBB. For example in color #3366CC
+value 33 is the RED component, 66 is the GREEN component and CC is
+the BLUE component.
+<P>
+<LI>Spectroscope, an excellent FREE utility program for selecting safe colors
+(Windows 95/NT), is available from
+<A HREF="http://www.headoffice.co.uk">http://www.headoffice.co.uk</A>.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+<!-- HTML Code Examples -->
+
+<A NAME="codex">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH BGCOLOR=#CCCCCC>HTML code examples</TH>
+<TR><TD>
+VTick and HTick applet tag code examples are presented in
+<A HREF="ticker_code.txt">ticker_code.txt</A>.
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+<!-- Troubleshooting -->
+
+<A NAME="trouble">
+<TABLE WIDTH="100%" CELLPADDING=4 BORDER=0>
+<TH BGCOLOR=#CCCCCC>If you have Problems...</TH>
+<TR><TD>
+Make sure JAVA is ENABLED in your browser. Remember local testing of applets in 
+some browsers may not work. Netscape can take some time (minutes) to initialise 
+it's Java virtual machine when displaying local pages. Most HTML WYSIWYG editors
+won't run Java applets in their internal browsers. Always invoke your test page
+from a browser bookmark (this makes the browser think it is reading from a URL).
+<P>
+It's always essential to final test over a live Internet connection (use a test
+page nobody else can view before you release it on the general public).
+<P>
+Problems are nearly always caused by spelling mistakes, invalid directory 
+information or case sensitivity problems.
+<P>
+When FTP-ing to your site ensure class files are sent in binary mode, and check
+your FTP program is not set to convert all filenames to lowercase (class file
+names are case sensitive).
+<P>
+There is an <B>Applet Users Tutorial</B> available on the Java Hermit web site.
+If you have problems configuring and/or testing your applets you may find some
+useful info there.
+<P>
+Please read this documentation carefully before contacting the Hermit for
+technical assistance. If requesting help include as much information as possible
+(description of problem, browser and OS details, testing online or offline?).
+Include a copy of your HTML (please do <I>not</I> mail graphics files) and, if
+available, a URL to the page on which the problem occurs. 
+
+<P ALIGN="RIGHT"><A HREF="#top">back to top</A>
+</TD></TR>
+</TABLE>
+
+&nbsp;<P>
+&copy;The Java Hermit 1998<BR>
+E-mail: <A HREF="mailto:hermit@celticedge.com">hermit@celticedge.com</A><BR>
+Homepage: <A HREF="http://www.celticedge.com/hermit/index.html">
+http://www.celticedge.com/hermit/</A>
+
+</BODY>
+</HTML>
